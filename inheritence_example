@@ -1,0 +1,68 @@
+ # Add car specific attributes to the Car class (fuel, make, model, etc.) and bicycle specific attributes to the Bicycle class (speed, type, weight, etc.). Use the super method to keep the initialize methods DRY.
+
+class Vehicile 
+
+  def initialize
+    @speed = 0
+    @direction = 'north'
+  end
+
+  def brake
+    @speed = 0
+  end
+
+  def accelerate
+    @speed += 10
+  end
+
+  def turn(new_direction)
+    @direction = new_direction
+  end
+end 
+
+class Car < Vehicile
+
+  def initialize
+    super 
+    @make = "Acura"
+    @model = "RL"
+    @gas_mileage = "30mpg"
+  end 
+
+  def honk_horn
+    puts "Beeeeeeep!"
+  end
+end
+
+class Bike < Vehicile
+
+  def initialize
+    super 
+    @type = "cool bike"
+    @weight = "light"
+    @tire_size = "medium"
+  end 
+
+  def ring_bell
+    puts "Ring ring!"
+  end
+end
+
+bike = Bike.new 
+
+car = Car.new
+
+p car
+p bike 
+
+car.accelerate
+bike.accelerate
+
+p car.honk_horn
+
+p bike.ring_bell
+
+
+
+
+
